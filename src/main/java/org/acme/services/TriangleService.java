@@ -12,13 +12,15 @@ public class TriangleService implements TraingleServicePort {
         int aValue = requestDto.getaSide();
         int bValue = requestDto.getbSide();
         int cValue = requestDto.getcSide();
-        if (aValue == bValue && bValue == cValue) {
-            return "Equilatero";
-        }
+        String mensaje = "Es equilatero";
         if (aValue != bValue && aValue != cValue) {
-            return "Escaleno";
+            mensaje = "Escaleno";
+            return mensaje;
         }
-        else
-            return "Isosceles";
+        if (aValue == bValue && aValue != cValue || aValue == cValue && aValue != bValue) {
+            mensaje = "Isosceles";
+            return mensaje;
+        }
+        return mensaje;
     }
 }
