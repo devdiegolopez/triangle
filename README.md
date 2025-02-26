@@ -1,5 +1,14 @@
 # triangle
 
+Curl para testear:
+curl --location 'localhost:8080/hello' \
+--header 'Content-Type: application/json' \
+--data '{
+    "aSide":10,
+    "bSide":10,
+    "cSide":10
+}'
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
