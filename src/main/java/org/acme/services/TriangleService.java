@@ -8,17 +8,17 @@ import org.acme.domain.ports.TraingleServicePort;
 @ApplicationScoped
 public class TriangleService implements TraingleServicePort {
     @Override
-    public String triangleEval(RequestDto requestDto) {
+    public ResponseDto triangleEval(RequestDto requestDto) {
         int aValue = requestDto.getaSide();
         int bValue = requestDto.getbSide();
         int cValue = requestDto.getcSide();
-        String mensaje = "Es equilatero";
+        ResponseDto mensaje = new ResponseDto(requestDto);
         if (aValue != bValue && aValue != cValue) {
-            mensaje = "Escaleno";
+            mensaje = mensaje.setMessage("Escaleno");
             return mensaje;
         }
         if (aValue == bValue && aValue != cValue || aValue == cValue && aValue != bValue) {
-            mensaje = "Isosceles";
+            mensaje = mensaje.setMessage("Isosceles");
             return mensaje;
         }
         return mensaje;
