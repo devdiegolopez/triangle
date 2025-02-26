@@ -23,7 +23,7 @@ public class GreetingResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseDto triangle(RequestDto requestDto) {
-            LOG.info("Received request: " + requestDto);
+        LOG.info("Received request: " + requestDto);
         return traingleServicePort.triangleEval(requestDto);
     }
 }
