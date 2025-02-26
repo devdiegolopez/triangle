@@ -3,13 +3,15 @@ package org.acme.controller;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import org.acme.domain.data.dto.request.RequestDto;
+import org.acme.domain.ports.TraingleServicePort;
 
 import java.util.logging.Logger;
-
+//Equilatero,isoceles,escaleno
 @Path("/hello")
 public class GreetingResource {
+    @Inject
+    TraingleServicePort traingleServicePort;
 
     private static final Logger LOG = Logger.getLogger(String.valueOf(GreetingResource.class));
     @GET
@@ -19,9 +21,9 @@ public class GreetingResource {
     }
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response triangle(RequestDto requestDto) {
+    public String triangle(RequestDto requestDto) {
             LOG.info("Received request: " + requestDto);
-        return null;
+        return traingleServicePort.triangleEval(requestDto);
     }
 
 }
