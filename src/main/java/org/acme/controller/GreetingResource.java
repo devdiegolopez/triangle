@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 public class GreetingResource {
     @Inject
     TraingleServicePort traingleServicePort;
-
     private static final Logger LOG = Logger.getLogger(String.valueOf(GreetingResource.class));
     @GET
     @Produces(MediaType.TEXT_PLAIN)

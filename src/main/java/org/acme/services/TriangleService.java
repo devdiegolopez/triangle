@@ -13,7 +13,6 @@ public class TriangleService implements TraingleServicePort {
         int bValue = requestDto.getbSide();
         int cValue = requestDto.getcSide();
         String mensaje = "Es equilatero";
-        ResponseDto responseDto = new ResponseDto(mensaje);
         if (aValue != bValue && aValue != cValue) {
             mensaje = "Escaleno";
             return new ResponseDto(mensaje);
