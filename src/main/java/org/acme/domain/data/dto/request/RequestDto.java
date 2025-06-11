@@ -1,5 +1,7 @@
 package org.acme.domain.data.dto.request;
 
+import java.util.Objects;
+
 public class RequestDto {
     private int aSide;
     private int bSide;
@@ -45,5 +47,17 @@ public class RequestDto {
                 ", bSide=" + bSide +
                 ", cSide=" + cSide +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        RequestDto that = (RequestDto) o;
+        return aSide == that.aSide && bSide == that.bSide && cSide == that.cSide;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aSide, bSide, cSide);
     }
 }
