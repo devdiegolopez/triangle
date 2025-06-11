@@ -1,5 +1,7 @@
 package org.acme.domain.data.dto.response;
 
+import java.util.Objects;
+
 public class ResponseDto {
     String res;
 
@@ -21,4 +23,17 @@ public class ResponseDto {
                 "res='" + res + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        ResponseDto that = (ResponseDto) o;
+        return Objects.equals(res, that.res);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(res);
+    }
 }
+     
